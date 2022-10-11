@@ -1,16 +1,21 @@
 {
   "expo": {
-    "name": "nftStorageLite",
+    "packagerOpts": {
+      "sourceExts": [
+        "cjs"
+      ]
+    },
+    "name": "NftStorageLite",
     "slug": "nftStorageLite",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./src/assets/images/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#DDE7DC"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -19,16 +24,18 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.yfd.nft.storage"
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./src/assets/images/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "57e84eef-e115-4bc5-aa26-b90bd2cd2b32"
+      }
     }
   }
 }

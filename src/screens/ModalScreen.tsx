@@ -1,5 +1,5 @@
 import {StatusBar} from 'expo-status-bar';
-import {ActivityIndicator, Platform, Pressable, ScrollView, StyleSheet, TextInput} from 'react-native';
+import {ActivityIndicator, Platform, Pressable, ScrollView, TextInput} from 'react-native';
 import {Text, View} from '../components/Themed';
 import {useCallback, useEffect, useState} from "react";
 import * as Clipboard from "expo-clipboard";
@@ -12,15 +12,13 @@ export default function ModalScreen() {
     let detail: { [x: string]: any, deals?: any, pin?: any } = {};
     let [file, setDetail] = useState(detail);//更新详情
     // @ts-ignore
-    let key = useState(global['api_key'] || false);
-
+    let key = useState(global['api_key']);
 
     const getDetail = useCallback(async (cid: string) => {
-        if(!key)return;
+        if(!key[0])return;
         let res = await fetch(API_URL + '/' + cid, {headers: {'Authorization': 'Bearer ' + key[0]}}).then((result) => result.json());
         loading[1](false);
         if (res.ok) {
-            console.log(res.value)
             setDetail(res.value);
         } else {
             alert(JSON.stringify(res.error.message));
@@ -30,8 +28,6 @@ export default function ModalScreen() {
     useEffect(() => {
         loading[0] && getDetail(cid).catch((res) => alert(JSON.stringify(res)))
     }, [cid]);
-
-
 
     return (
         <ScrollView style={{flex: 1, backgroundColor: 'rgb(221,231,220)'}}>
@@ -49,8 +45,6 @@ export default function ModalScreen() {
                 loading[1](true);
                 setCID(text);
             }} placeholder={'Your CID'}/>
-
-
             {file.cid ? <View style={{
                 width: '95%',
                 marginHorizontal: '2.5%',
@@ -65,7 +59,6 @@ export default function ModalScreen() {
                 }}>
                     <Text style={{fontWeight: 'bold'}}>CID:{file.cid}</Text>
                 </Pressable>
-
                 <Text
                     style={{color: file.pin.status === 'pinned' ? '#268c89' : 'tomato'}}>PinStatus:{file.pin.status} </Text>
                 <Text>Type:{file.type} Size:{file.size}</Text>
@@ -80,7 +73,6 @@ export default function ModalScreen() {
                                 <Pressable onPress={async () => {
                                     await Clipboard.setStringAsync(file.pieceCid);
                                     alert('Copied:' + file.pieceCid)
-
                                 }
                                 }>
                                     <Text style={{color: '#268c89'}}>PieceCid:{de.pieceCid}</Text>
@@ -112,20 +104,3 @@ export default function ModalScreen() {
         </ScrollView>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
-});

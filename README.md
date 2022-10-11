@@ -5,7 +5,7 @@
 
 1.支持设置API KEY后查询该帐户下的所属文件列表与详情。
 
-2.支持通过指定CID查询特定文件详情。
+2.支持通过指定CID查询特定文件详情获取IPFS地址。
 
 
 <img src="https://github.com/winterOmii/nftStorageLite/blob/master/src/assets/images/icon.png" alt="LOGO" style="width: 200px">

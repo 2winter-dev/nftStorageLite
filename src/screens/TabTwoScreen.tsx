@@ -1,21 +1,18 @@
-import {Button, StyleSheet, Linking, Pressable, Alert, TextInput, Image} from 'react-native';
+import { StyleSheet, Linking, Pressable, Alert, TextInput, Image} from 'react-native';
 import {Text, View} from '../components/Themed';
-import useColorScheme from "../hooks/useColorScheme";
 import {FontAwesome} from "@expo/vector-icons";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {API_URL} from "../../Utils";
 export default function TabTwoScreen() {
     // @ts-ignore
     let {api_key} = global;
     let apiKey = useState(api_key);
     return (
-        <View style={styles.container}>
-
+        <View style={{flex:1}}>
             <Image source={require('../assets/images/icon.png')} style={{width:150,height:150,alignSelf:'center',margin:10}} resizeMode={'contain'}/>
-
             <Pressable onPress={()=>{
-                Linking.openURL('https://nft.storage/login/')
+                Linking.openURL('https://nft.storage/login/').catch((e)=>null)
             }}>
                 <View style={{...styles.card,backgroundColor:'#42883f',justifyContent:'space-between'}}>
 
@@ -33,8 +30,6 @@ export default function TabTwoScreen() {
                         global['api_key'] = text;
                         AsyncStorage.setItem('@api_key', text).catch((e)=>alert(JSON.stringify(e)));
                         alert('success.');
-
-
                     }} style={{backgroundColor:'rgba(66,136,63,0.7)',width:'80%',borderColor:'rgba(0,0,0,0.8)',paddingHorizontal:5,borderWidth:0.2}} placeholderTextColor={'rgba(255,255,255,0.79)'} placeholder={(apiKey[0]?.slice(0, 100) ?? '')+ '...'}/>
 
                 </View>
@@ -75,18 +70,5 @@ export default function TabTwoScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
     card:{flexDirection: 'row', alignItems: 'center',borderColor:'#42883f',borderWidth:2,padding:10,margin:'2.5%'}
 });

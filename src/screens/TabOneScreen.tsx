@@ -12,6 +12,7 @@ export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>)
     // @ts-ignore
     let key = useState( global['api_key']);
     useEffect(() => {
+        //监听重置API KEY
         return navigation.addListener('focus', async () => {
             // @ts-ignore
             let apiKey = global['api_key'];
@@ -26,6 +27,7 @@ export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>)
     }, [navigation])
 
 
+    //获取列表
     const getList = useCallback(async () => {
         if(loading[0])return;
         loading[1](true);
@@ -45,7 +47,7 @@ export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>)
 
 
     return (
-        <ScrollView style={styles.container} contentContainerStyle={{flexDirection: 'row', flexWrap: 'wrap'}}>
+        <ScrollView style={{flex:1}} contentContainerStyle={{flexDirection: 'row', flexWrap: 'wrap'}}>
 
             {
                 loading[0] ? <ActivityIndicator style={{marginVertical: 10, marginHorizontal: 'auto', width: '100%'}}
@@ -111,17 +113,3 @@ export default function TabOneScreen({navigation}: RootTabScreenProps<'TabOne'>)
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-    },
-    separator: {
-        marginVertical: 30,
-        height: 1,
-        width: '80%',
-    },
-});

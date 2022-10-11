@@ -9,13 +9,14 @@
 
 
 <img src="https://github.com/winterOmii/nftStorageLite/blob/master/src/assets/images/icon.png" alt="LOGO" style="width: 200px">
-<br/>
+<br/><br/>
+
 
 <img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/home.png" alt="LOGO" style="width: 400px">
-<br/>
+<br/><br/>
 
 <img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png" alt="LOGO" style="width: 400px"> 
-<br/>
+<br/><br/>
 
-<img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png" alt="LOGO" style="width: 400px"> 
+<img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/query.png" alt="LOGO" style="width: 400px"> 
 

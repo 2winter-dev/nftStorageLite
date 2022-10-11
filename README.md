@@ -8,10 +8,14 @@
 2.支持通过指定CID查询特定文件详情。
 
 
-![LOGO](https://github.com/winterOmii/nftStorageLite/blob/master/src/assets/images/icon.png)
+<img src="https://github.com/winterOmii/nftStorageLite/blob/master/src/assets/images/icon.png" alt="LOGO" style="width: 200px">
+<br/>
 
-![home Demo](https://github.com/winterOmii/nftStorageLite/blob/master/preview/home.png)
+<img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/home.png" alt="LOGO" style="width: 400px">
+<br/>
 
-![setting Demo](https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png)
+<img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png" alt="LOGO" style="width: 400px"> 
+<br/>
 
-![query Demo](https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png)
+<img src="https://github.com/winterOmii/nftStorageLite/blob/master/preview/setting.png" alt="LOGO" style="width: 400px"> 
+
